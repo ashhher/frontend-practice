@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font: 1em sans-serif;
+            padding: 0;
+            margin: 0;
+        }
+
+        form {
+            max-width: 200px;
+            margin: 0;
+            padding: 0 5px;
+        }
+
+        p>label {
+            display: block;
+        }
+
+        input[type=text],
+        input[type=email],
+        input[type=number],
+        textarea,
+        fieldset {
+            /* 需要在基于WebKit的浏览器上对表单元素进行恰当的样式设置 */
+            -webkit-appearance: none;
+
+            width: 100%;
+            border: 1px solid #333;
+            margin: 0;
+
+            font-family: inherit;
+            font-size: 90%;
+
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        input:invalid {
+            box-shadow: 0 0 5px 1px red;
+        }
+
+        input:focus:invalid {
+            outline: none;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <select id="groups" name="groups">
+            <optgroup label="fruits">
+                <option>Banana</option>
+                <option selected>Cherry</option>
+                <option>Lemon</option>
+            </optgroup>
+            <optgroup label="vegetables">
+                <option>Carrot</option>
+                <option>Eggplant</option>
+                <option>Potato</option>
+            </optgroup>
+        </select>
+
+        <select multiple id="multi" name="multi">
+            <option>Banana</option>
+            <option>Cherry</option>
+            <option>Lemon</option>
+        </select>
+
+        <label for="myFruit">What's your favorite fruit?</label>
+        <input type="text" name="myFruit" id="myFruit" list="mySuggestion">
+        <datalist id="mySuggestion">
+            <option>Apple</option>
+            <option>Banana</option>
+            <option>Blackberry</option>
+            <option>Blueberry</option>
+            <option>Lemon</option>
+            <option>Lychee</option>
+            <option>Peach</option>
+            <option>Pear</option>
+        </datalist>
+
+        <label for="myFruit">What is your favorite fruit? (With fallback)</label>
+        <input type="text" id="myFruit" name="fruit" list="fruitList">
+
+
+        <!-- 支持<datalist>元素的浏览器将忽略所有不是<option>元素的元素，并按照预期工作。另一方面，不支持<datalist>元素的浏览器将显示标签和选择框。 -->
+        <datalist id="fruitList">
+            <label for="suggestion">or pick a fruit</label>
+            <select id="suggestion" name="altFruit">
+                <option>Apple</option>
+                <option>Banana</option>
+                <option>Blackberry</option>
+                <option>Blueberry</option>
+                <option>Lemon</option>
+                <option>Lychee</option>
+                <option>Peach</option>
+                <option>Pear</option>
+            </select>
+        </datalist>
+        <meter min="0" max="100" value="20" low="33" high="66" optimum="50">50</meter>
+    </form>
+
+    <form>
+        <p>
+            <fieldset>
+                <legend>Title<abbr title="This field is mandatory">*</abbr></legend>
+                <input type="radio" required name="title" id="r1" value="Mr"><label for="r1">Mr.</label>
+                <input type="radio" required name="title" id="r2" value="Ms"><label for="r2">Ms.</label>
+            </fieldset>
+        </p>
+        <p>
+            <label for="n1">How old are you?</label>
+            <!-- 这里的pattern属性可以用作不支持number类input浏览器的备用方法
+               请注意当与数字输入框一起使用时，支持pattern属性的浏览器会使它沉默失效。
+               它仅仅是在这里用作备用 -->
+            <input type="number" min="12" max="120" step="1" id="n1" name="age" pattern="\d+">
+        </p>
+        <p>
+            <label for="t1">What's your favorite fruit?<abbr title="This field is mandatory">*</abbr></label>
+            <input type="text" id="t1" name="fruit" list="l1" required
+                pattern="[Bb]anana|[Cc]herry|[Aa]pple|[Ss]trawberry|[Ll]emon|[Oo]range">
+            <datalist id="l1">
+                <option>Banana</option>
+                <option>Cherry</option>
+                <option>Apple</option>
+                <option>Strawberry</option>
+                <option>Lemon</option>
+                <option>Orange</option>
+            </datalist>
+        </p>
+        <p>
+            <label for="t2">What's your e-mail?</label>
+            <input type="email" id="t2" name="email">
+        </p>
+        <p>
+            <label for="t3">Leave a short message</label>
+            <textarea id="t3" name="msg" maxlength="140" rows="5"></textarea>
+        </p>
+        <p>
+            <button>Submit</button>
+        </p>
+    </form>
+</body>
+
+</html>
