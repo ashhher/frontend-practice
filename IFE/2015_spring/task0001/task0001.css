@@ -1,0 +1,31 @@
+h1 {
+    color: slategray;
+}
+
+h2 {
+    font-size: 14px;
+    color: rgb(197, 161, 114);
+}
+
+p {
+    font-size: 12px;
+    background-color: thistle;
+    color: teal;
+}
+
+img {
+    width: 400px;
+    border: 2px solid rebeccapurple;
+}
+
+.p1 {
+    text-align: center;
+    text-transform: uppercase;
+    word-spacing: 10px;
+    white-space: pre-wrap;
+}
+
+.p2 {
+    text-indent: 2em;
+    text-decoration: underline overline;
+}
