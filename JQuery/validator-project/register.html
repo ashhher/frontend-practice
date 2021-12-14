@@ -20,7 +20,7 @@
             <form action="post" id="signup">
                 <div class="input-wrap">
                     <label>姓名</label>
-                    <input data-rule='' type="text" name="name" class="input-control">
+                    <input data-rule='maxlength:10|minlength:2|min:3' type="text" name="name" class="input-control">
                     <div id="name-input-error" class="input-error">姓名格式有误</div>
                 </div>
             </form>
@@ -28,6 +28,7 @@
     </div>
 
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="js/validator.js"></script>
     <script src="js/main.js"></script>
 </body>
 
