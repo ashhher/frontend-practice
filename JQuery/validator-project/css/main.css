@@ -1,8 +1,22 @@
 * {
-    background: rgba(0, 0, 0, .1);
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+}
+
+body,
+.input-control {
+    color: #444;
+}
+
+.form,
+.input-control,
+.button-control {
+    border-radius: 3px;
+}
+
+body {
+    background: #f0f0f0;
 }
 
 h1 {
@@ -23,18 +37,37 @@ h1 {
     max-width: 450px;
 }
 
+.form {
+    padding: 20px;
+    background: #fff;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .2);
+}
+
 .input-wrap {
     margin-bottom: 10px;
 }
+
+.input-wrap label {
+    padding: 5px 0;
+    display: block;
+}
+
+.button-control,
 .input-control {
+    border: 1px solid #999;
     padding: 5px 10px;
-    border: 1px solid #000;
-    color: #fff;
     width: 100%;
 }
+
+.button-control {
+    margin-top: 10px;
+}
+
 .input-error {
     padding-top: 5px;
-    font-size:90%;
-    color: #a10;
-    /* display: none; */
+    font-size: 90%;
+    color: rgb(199, 40, 23);
+    display: none;
 }

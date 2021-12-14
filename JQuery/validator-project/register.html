@@ -17,18 +17,48 @@
             <h1>注册</h1>
         </div>
         <div class="form">
-            <form action="post" id="signup">
+            <form id="signup">
+
+                <div class="input-wrap">
+                    <label>用户名</label>
+                    <input data-rule='pattern:"^[a-z0-9]*$"|maxlength:8|minlength:4' type="text" name="username"
+                        class="input-control">
+                    <div id="username-input-error" class="input-error">用户名格式有误</div>
+                </div>
+
+                <div class="input-wrap">
+                    <label>密码</label>
+                    <input data-rule='maxlength:30|minlength:3' type="password" name="password"
+                        class="input-control">
+                    <div id="password-input-error" class="input-error">密码格式有误</div>
+                </div>
+
                 <div class="input-wrap">
                     <label>姓名</label>
-                    <input data-rule='maxlength:10|minlength:2|min:3' type="text" name="name" class="input-control">
+                    <input data-rule='maxlength:5|minlength:2' type="text" name="name" class="input-control">
                     <div id="name-input-error" class="input-error">姓名格式有误</div>
                 </div>
+
+                <div class="input-wrap">
+                    <label>年龄</label>
+                    <input data-rule='min:18' type="text" name="age" class="input-control">
+                    <div id="age-input-error" class="input-error">年龄格式有误</div>
+                </div>
+
+                <div class="input-wrap">
+                    <label>自我介绍</label>
+                    <input data-rule='maxlength:100|required:false' type="text" name="intro" class="input-control">
+                    <div id="intro-input-error" class="input-error">自我介绍超出长度</div>
+                </div>
+
+                <button class = "button-control" type="submit">注册</button>
             </form>
         </div>
     </div>
 
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
     <script src="js/validator.js"></script>
+    <script src="js/input.js"></script>
     <script src="js/main.js"></script>
 </body>
 
