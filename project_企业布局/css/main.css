@@ -8,6 +8,14 @@ body {
     background-color: #F5F5F5;
 }
 
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+
 .top {
     width: 100%;
     height: 27px;
@@ -24,12 +32,9 @@ body {
     float: right;
     width: 70px;
     line-height: 27px;
-
 }
 
-.top-content a {
-    text-decoration: none;
-}
+
 
 .top-content a:link,
 .top-content a:visited {
@@ -99,7 +104,6 @@ body {
 .nav-left li {
     float: left;
     width: 100px;
-    list-style-type: none;
     text-align: center;
     line-height: 40px;
     height: 40px;
@@ -113,7 +117,6 @@ body {
 }
 
 .nav-left a {
-    text-decoration: none;
     font-size: 16px;
 }
 
@@ -130,7 +133,166 @@ body {
 .search-text {
     width: 200px;
     height: 25px;
+    padding-right: 30px;
     border: 1px solid white;
     background: url(../images/search.jpg) no-repeat right center;
     background-color: #FFF;
+}
+
+.ad {
+    height: 310px;
+    overflow: hidden;
+}
+
+.main,
+.news,
+.course,
+.sidebar {
+    height: 250px;
+}
+
+.news,
+.course,
+.sidebar {
+    background-color: #FFF;
+}
+
+.main {
+    margin-top: 5px;
+    height: 250px;
+    padding: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.news,
+.course,
+.sidebar {
+    border: 1px solid #e8e8e8;
+}
+
+.news {
+    width: 340px;
+}
+
+.course {
+    width: 410px;
+}
+
+.sidebar {
+    width: 230px;
+}
+
+.title {
+    height: 35px;
+    border-bottom: 2px solid #e8e8e8;
+}
+
+.title-left {
+    width: 70%;
+    font-family: "微软雅黑";
+    font-size: 14px;
+    font-weight: bold;
+    color: #786F66;
+    line-height: 35px;
+    padding-left: 20px;
+    float: left;
+}
+
+.title-right {
+    width: 20%;
+    line-height: 35px;
+    float: right;
+    text-align: right;
+    padding-right: 10px;
+}
+
+.title-right a {
+    color: #8E8E8E;
+}
+
+.news-pic {
+    height: 95px;
+    margin-top: 10px;
+    line-height: 22px;
+    border-bottom: 2px solid #e8e8e8;
+}
+
+.news-pic img,
+.course-pic img {
+    float: left;
+    margin: 0 10px;
+}
+
+.news-pic a,
+.course-pic a {
+    color: #C00;
+}
+
+.news-list {
+    margin-top: 10px;
+}
+
+.news-list li {
+    background: url(../images/list.jpg) no-repeat;
+    padding-left: 10px;
+    margin: 8px;
+    border-bottom: 1px dotted #CCC;
+}
+
+.news-list a:link,
+.news-list a:visited {
+    color: #000;
+}
+
+.news-list a:hover,
+.news-list a:active {
+    color: #D00;
+}
+
+.news-list .date {
+    float: right;
+    color: #8E8E8E
+}
+
+.course-pic {
+    height: 120px;
+    margin-top: 10px;
+    line-height: 22px;
+    border-bottom: 2px solid #e8e8e8;
+}
+
+.course-type {
+    width: 372px;
+    height: 37px;
+    margin: 20px auto;
+    background: url(../images/product_type_bg.jpg);
+}
+
+.course-type ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+}
+
+.course-type li {
+    float: left;
+    text-align: center;
+    line-height: 37px;
+}
+
+.sidebar-video {
+    height: 185px;
+    border-bottom: 2px solid #e8e8e8;
+}
+
+iframe {
+    margin: 4px 5px;
+}
+
+.sidebar-ad {
+    height: 55px;
+    margin-top: 5px;
 }
