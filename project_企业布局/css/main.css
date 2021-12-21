@@ -24,6 +24,21 @@ body {
     float: right;
     width: 70px;
     line-height: 27px;
+
+}
+
+.top-content a {
+    text-decoration: none;
+}
+
+.top-content a:link,
+.top-content a:visited {
+    color: #8E8E8E;
+}
+
+.top-content a:hover,
+.top-content a:active {
+    color: rgb(151, 32, 32);
 }
 
 .wrap {
@@ -61,4 +76,61 @@ body {
     font-family: "微软雅黑";
     color: rgb(151, 32, 32);
     font-size: 14px;
+}
+
+.nav,
+.nav-left,
+.nav-right {
+    height: 40px;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(131, 116, 96);
+    border-radius: 4px;
+}
+
+.nav-left {
+    width: 670px;
+    padding-left: 30px;
+}
+
+.nav-left li {
+    float: left;
+    width: 100px;
+    list-style-type: none;
+    text-align: center;
+    line-height: 40px;
+    height: 40px;
+}
+
+.nav-right {
+    width: 270px;
+    padding-right: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.nav-left a {
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav-left a:link,
+.nav-left a:visited {
+    color: white;
+}
+
+.nav-left a:hover,
+.nav-left a:active {
+    color: rgb(177, 169, 100);
+}
+
+.search-text {
+    width: 200px;
+    height: 25px;
+    border: 1px solid white;
+    background: url(../images/search.jpg) no-repeat right center;
+    background-color: #FFF;
 }
