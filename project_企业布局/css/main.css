@@ -4,7 +4,7 @@
     font-size: 12px;
 }
 
-body{
+body {
     background-color: #F5F5F5;
 }
 
@@ -24,4 +24,41 @@ body{
     float: right;
     width: 70px;
     line-height: 27px;
+}
+
+.wrap {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.logo {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #FFF;
+    color: #8E8E8E;
+}
+
+.logo img {
+    vertical-align: middle;
+}
+
+.logo-left {
+    width: 200px;
+}
+
+.logo-right {
+    width: 300px;
+}
+
+.logo-right img {
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+.logo-right .tel {
+    font-family: "微软雅黑";
+    color: rgb(151, 32, 32);
+    font-size: 14px;
 }
