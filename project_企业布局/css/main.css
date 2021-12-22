@@ -305,7 +305,7 @@ iframe {
 }
 
 .footer-content {
-    padding: 10px 0 30px 0;
+    padding: 20px 0;
 }
 
 .footer-content .menu {
@@ -322,7 +322,7 @@ iframe {
     background-color: #a8a8a8;
 }
 
-.footer-content .menu-title{
+.footer-content .menu-title {
     font-size: 14px;
     color: #8E8E8E;
 }
