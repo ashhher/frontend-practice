@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News List</title>
+    <link rel="stylesheet" href="css/main.css">
+    <script src="js/setHomeSetFav.js" charset="gb2312"></script>
+
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-content">
+            <ul>
+                <li><a href="#">联系我们</a></li>
+                <li><a href="#" onclick="SetHome(window.location)">设为首页</a></li>
+                <li><a href="#" onclick="AddFavorite(window.location, document.title)">加入收藏</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="wrap">
+        <div class="logo">
+            <div class="logo-left">
+                <img src="images/logo.jpg" alt="慕课网">
+            </div>
+            <div class="logo-right">
+                <img src="images/tel.jpg" alt="电话">
+                24小时服务热线
+                <span class="tel">150-0712-9651</span>
+            </div>
+        </div>
+
+        <div class="nav">
+            <div class="nav-left">
+                <ul>
+                    <li><a href="">首页</a></li>
+                    <li><a href="">关于</a></li>
+                    <li><a href="">新闻</a></li>
+                    <li><a href="">课程</a></li>
+                    <li><a href="">招聘</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <form action="" method="post">
+                    <input class="search-text" type="text">
+                </form>
+            </div>
+        </div>
+
+        <div class="ad" id="picBox" style="height: 243px;">
+            <img src="images/ad.jpg">
+        </div>
+
+        <div class="news-main clearfix">
+            <div class="news-type">
+                <h2>新闻中心</h2>
+                <ul>
+                    <li><a href="#">公司新闻</a></li>
+                    <li><a href="#">公司新闻</a></li>
+                    <li><a href="#">公司新闻</a></li>
+                    <li><a href="#">公司新闻</a></li>
+                    <li><a href="#">公司新闻</a></li>
+                    <li><a href="#">公司新闻</a></li>
+                    <li><a href="#">公司新闻</a></li>
+                </ul>
+            </div>
+            <div class="news-list">
+                <h2>新闻列表</h2>
+                <ul>
+                    <li><a href="news.html">【慕课访谈 用户篇】“有为青年”在路上</a><span class="date">2021-12-21</span></li>
+                    <li><a href="news.html">【有奖活动】给父亲的三行书信</a><span class="date">2021-12-17</span></li>
+                    <li><a href="news.html">《程序员，请晒出你的童年》活动获奖公告</a><span class="date">2021-12-13</span></li>
+                    <li><a href="news.html">【慕课访谈】破茧成蝶——程序员的蜕变史</a><span class="date">2021-12-09</span></li>
+                    <li><a href="news.html">【慕课访谈 用户篇】“有为青年”在路上</a><span class="date">2021-12-21</span></li>
+                    <li><a href="news.html">【有奖活动】给父亲的三行书信</a><span class="date">2021-12-17</span></li>
+                    <li><a href="news.html">《程序员，请晒出你的童年》活动获奖公告</a><span class="date">2021-12-13</span></li>
+                    <li><a href="news.html">【慕课访谈】破茧成蝶——程序员的蜕变史</a><span class="date">2021-12-09</span></li>
+                    <li><a href="news.html">【慕课访谈 用户篇】“有为青年”在路上</a><span class="date">2021-12-21</span></li>
+                    <li><a href="news.html">【有奖活动】给父亲的三行书信</a><span class="date">2021-12-17</span></li>
+                    <li><a href="news.html">《程序员，请晒出你的童年》活动获奖公告</a><span class="date">2021-12-13</span></li>
+                    <li><a href="news.html">【慕课访谈】破茧成蝶——程序员的蜕变史</a><span class="date">2021-12-09</span></li>
+                    <li><a href="news.html">【慕课访谈 用户篇】“有为青年”在路上</a><span class="date">2021-12-21</span></li>
+                    <li><a href="news.html">【有奖活动】给父亲的三行书信</a><span class="date">2021-12-17</span></li>
+                    <li><a href="news.html">《程序员，请晒出你的童年》活动获奖公告</a><span class="date">2021-12-13</span></li>
+                    <li><a href="news.html">【慕课访谈】破茧成蝶——程序员的蜕变史</a><span class="date">2021-12-09</span></li>
+                    <li><a href="news.html">【慕课访谈 用户篇】“有为青年”在路上</a><span class="date">2021-12-21</span></li>
+                    <li><a href="news.html">【有奖活动】给父亲的三行书信</a><span class="date">2021-12-17</span></li>
+                    <li><a href="news.html">《程序员，请晒出你的童年》活动获奖公告</a><span class="date">2021-12-13</span></li>
+                    <li><a href="news.html">【慕课访谈】破茧成蝶——程序员的蜕变史</a><span class="date">2021-12-09</span></li>
+                </ul>
+
+                <div class="page">
+                    <a href="#">首页</a>
+                    <a href="#">1</a>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                    <a href="#">&gt;</a>
+                    <a href="#">尾页</a>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-content">
+            <ul class="menu">
+                <li>
+                    <a href="#" class="menu-title">关于</a>
+                    <ul class="item">
+                        <li><a href="#">品牌故事</a></li>
+                        <li><a href="#">联系我们</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">版权声明</a></li>
+                    </ul>
+                </li>
+                <div class="border"></div>
+                <li>
+                    <a href="#" class="menu-title">关于</a>
+                    <ul class="item">
+                        <li><a href="#">品牌故事</a></li>
+                        <li><a href="#">联系我们</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">版权声明</a></li>
+                    </ul>
+                </li>
+                <div class="border"></div>
+                <li>
+                    <a href="#" class="menu-title">关于</a>
+                    <ul class="item">
+                        <li><a href="#">品牌故事</a></li>
+                        <li><a href="#">联系我们</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">版权声明</a></li>
+                    </ul>
+                </li>
+                <div class="border"></div>
+                <li>
+                    <a href="#" class="menu-title">关于</a>
+                    <ul class="item">
+                        <li><a href="#">品牌故事</a></li>
+                        <li><a href="#">联系我们</a></li>
+                        <li><a href="#">加入我们</a></li>
+                        <li><a href="#">版权声明</a></li>
+                    </ul>
+                </li>
+
+                <div class="border"></div>
+                <div class="wechat">
+                    <div class="menu-title"><img src="images/weixin.png" alt="微信图标"> 微信关注</div>
+                    <img class="qrcode" src="images/qrcode.jpg" alt="二维码">
+                </div>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
