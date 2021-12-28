@@ -13,6 +13,13 @@ a {
     color: inherit;
 }
 
+.clearfix:after {
+    content: "\20";
+    display: block;
+    height: 0;
+    clear: both;
+}
+
 .common_prduct {
     padding-top: 20px;
     position: relative;
@@ -29,7 +36,7 @@ a {
 
 .common_prduct .content {
     text-align: center;
-    padding-top:20px;
+    padding-top: 20px;
     font-size: 12px;
     font-weight: 700;
     color: #303030;
@@ -84,7 +91,7 @@ a {
 .header .header_c h1,
 .header .header_c .all_pro,
 .header .header_c .header_nav,
-.header .header_c .search{
+.header .header_c .search {
     float: left;
 }
 
@@ -194,7 +201,7 @@ a {
 }
 
 .header .header_c .login,
-.header .header_c .login .gwc{
+.header .header_c .login .gwc {
     float: right;
 }
 
@@ -249,5 +256,43 @@ a {
     color: #fff;
 }
 
+.banner {
+    position: relative;
+    height: 600px;
+}
 
+.banner ul li img {
+    width: 100%;
+}
 
+.banner ul li {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+}
+
+.banner ul li.cur {
+    display: block;
+}
+
+.banner .btns {
+    position: absolute;
+    left: 50%;
+    margin-left: -45px;
+    bottom: 30px;
+}
+
+.banner .btns ol li {
+    list-style: none;
+    width: 20px;
+    height: 4px;
+    background: #fff;
+    margin: 0 5px;
+    float: left;
+    cursor: pointer;
+}
+
+.banner .btns ol li.cur {
+    background: rgb(202, 167, 133);
+}
