@@ -1,0 +1,253 @@
+/* 版心 */
+.inner_c {
+    width: 1140px;
+    margin: 0 auto;
+}
+
+* {
+    font-family: '微软雅黑';
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.common_prduct {
+    padding-top: 20px;
+    position: relative;
+}
+
+.common_prduct .pic {
+    width: 200px;
+    margin: 0 auto;
+}
+
+.common_prduct .pic img {
+    width: 100%;
+}
+
+.common_prduct .content {
+    text-align: center;
+    padding-top:20px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #303030;
+}
+
+.common_prduct .content .price {
+    color: #CE2B2B;
+}
+
+.common_prduct .mask {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: rgba(0, 0, 0, 0.1);
+    display: none;
+}
+
+.common_prduct:hover .mask {
+    display: block;
+}
+
+.common_prduct .mask .btn {
+    width: 138px;
+    height: 52px;
+    background-color: #C78A49;
+    color: #fff;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -26px;
+    margin-left: -69px;
+    text-align: center;
+    line-height: 52px;
+    border-radius: 4px;
+}
+
+/* header */
+.header {
+    height: 68px;
+    width: 100%;
+    text-align: center;
+    line-height: 68px;
+    font-size: 16px;
+    /* border-bottom: 1px solid #E2E2E2; */
+    position: relative;
+    box-shadow: 0px 0px 4px 0px #666;
+}
+
+.header .header_c h1,
+.header .header_c .all_pro,
+.header .header_c .header_nav,
+.header .header_c .search{
+    float: left;
+}
+
+.header .header_c h1 {
+    height: 68px;
+    width: 140px;
+    padding: 0 15px;
+}
+
+.header .header_c h1 a {
+    display: block;
+    /* 顶开长宽 */
+    text-indent: -100em;
+    /* 挤出a中占位文字 */
+    overflow: hidden;
+    /* 隐藏溢出 */
+    background: url('../images/logo.png') no-repeat center center;
+}
+
+.header .header_c .all_pro>a {
+    width: 168px;
+    margin: 0 10px;
+    display: block;
+}
+
+.header .header_c .all_pro>a .icon {
+    display: inline-block;
+    border: 5px solid transparent;
+    border-top-color: #333;
+    position: relative;
+    left: 5px;
+    top: 3px;
+}
+
+.header .header_c .all_pro>a:hover,
+.header .header_c .header_nav li a:hover {
+    background-color: #e6d6c6;
+}
+
+
+.header .header_c .all_pro>a:hover .icon {
+    border-top-color: transparent;
+    border-bottom-color: #333;
+    top: -3px;
+}
+
+.header .header_c .all_pro .product {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    display: none;
+    background-color: #fff;
+}
+
+.header .header_c .all_pro:hover .product {
+    display: block;
+}
+
+.header .header_c .all_pro .product .product_inner {
+    padding-left: 250px;
+    line-height: 38px;
+}
+
+.header .header_c .all_pro .product .product_inner .inn_nav,
+.header .header_c .all_pro .product .product_inner .inn_detail {
+    float: left;
+}
+
+.header .header_c .all_pro .product .product_inner .inn_nav {
+    width: 155px;
+    text-align: left;
+    line-height: 50px;
+    padding: 45px 0 45px 26px;
+}
+
+.header .header_c .all_pro .product .product_inner .inn_nav a:hover {
+    color: #E5C29C;
+}
+
+.header .header_c .all_pro .product .product_inner .inn_detail {
+    width: 744px;
+    margin-left: 65px;
+}
+
+.header .header_c .all_pro .product .product_inner .inn_detail li {
+    width: 248px;
+    height: 340px;
+    float: left;
+}
+
+.header .header_c .header_nav li {
+    float: left;
+}
+
+.header .header_c .header_nav li a {
+    display: inline-block;
+    padding: 0 28px;
+}
+
+.header .header_c .search {
+    width: 154px;
+    height: 68px;
+    margin-left: 30px;
+    /* border: 1px solid #333; */
+    background: url(../images/img00.png) no-repeat center right;
+    cursor: pointer;
+}
+
+.header .header_c .login,
+.header .header_c .login .gwc{
+    float: right;
+}
+
+.header .header_c .login a {
+    padding: 0 5px;
+}
+
+.header .header_c .login span {
+    padding: 0 5px;
+}
+
+.header .header_c .login .gwc {
+    display: inline-block;
+    padding-left: 26px;
+    margin-left: 10px;
+    background: url(../images/0.png) no-repeat center left;
+    cursor: pointer;
+    position: relative;
+}
+
+.header .header_c .login .gwc .checkout {
+    position: absolute;
+    width: 230px;
+    padding: 20px;
+    box-shadow: 0 0 2px 0 #333;
+    border-radius: 2px;
+    right: 0;
+    top: 69px;
+    background-color: #f2f2f2;
+    display: none;
+}
+
+.header .header_c .login .gwc:hover .checkout {
+    display: block;
+}
+
+.header .header_c .login .gwc .checkout .check_con {
+    line-height: 50px;
+    font-size: 14px;
+    font-weight: 550;
+}
+
+.header .header_c .login .gwc .checkout .check_con span {
+    color: #db2e2e;
+}
+
+.header .header_c .login .gwc .checkout .button {
+    line-height: 44px;
+    font-size: 16px;
+    border-radius: 5px;
+    background: rgb(202, 178, 155);
+    color: #fff;
+}
+
+
+
