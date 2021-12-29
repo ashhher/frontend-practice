@@ -132,7 +132,7 @@ input {
     display: none;
 }
 
-.bannerBox li .current_banner {
+.bannerBox li .cur {
     display: block;
 }
 
@@ -148,7 +148,7 @@ input {
     display: inline-block;
     width: 11px;
     height: 11px;
-    background-color: yellowgreen;
+    background-color: #fff;
     border-radius: 15px;
     cursor: pointer;
     box-sizing: border-box;
@@ -158,7 +158,7 @@ input {
     margin-right: 5px;
 }
 
-.bannerBox .dots>span.square {
+.bannerBox .dots>span.cur {
     background-color: #00848A;
 }
 
@@ -260,7 +260,7 @@ input {
     margin-right: 0px;
 }
 
-.oddsBox .content .list .current_city {
+.oddsBox .content .list .cur {
     background-color: #00848A;
     color: #fff;
 }
@@ -273,7 +273,7 @@ input {
     display: none;
 }
 
-.oddsBox .productInfo .on {
+.oddsBox .productInfo .cur {
     display: block;
 }
 
