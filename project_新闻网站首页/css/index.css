@@ -1,0 +1,150 @@
+/* setup */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    min-width: 1000px;
+    font-family: "微软雅黑";
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+.clearfix:after {
+    content: "\20";
+    display: block;
+    height: 0;
+    clear: both;
+}
+
+.wrapperBox {
+    width: 100%;
+}
+
+/* 导航部分 */
+.navBox {
+    height: 50px;
+    background-color: #08A5E0;
+    font-size: 14px;
+}
+
+.navBox .logo {
+    float: left;
+    height: 100%;
+    margin-left: 10px;
+}
+
+.navBox .logo img {
+    height: 100%;
+}
+
+.navBox .navList {
+    float: right;
+}
+
+.navBox .navList li{
+    float: left;
+    
+}
+
+.navBox .navList li a {
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 20px;
+    color: #fff;
+    transition: all 0.5s;
+}
+
+.navBox .navList li a:hover {
+    background-color: #E1F2F9;
+    color: #067eaa;
+}
+
+/* Banner部分 */
+.bannerBox {
+    width: 100%;
+}
+
+.bannerBox img {
+    width: 100%;
+}
+
+/* 内容部分 */
+.contentBox {
+    width: 1200px;
+    margin: 40px auto;
+}
+
+.contentBox .newsBox .newsList {
+    width: 900px;
+    float: left;
+    font-size: 14px;
+    line-height: 25px;
+}
+
+.contentBox .newsBox .newsList th ul li {
+    float: left;
+    font-size: 15px;
+    font-weight: 600;
+    margin-right: 10px;
+}
+
+.contentBox .newsBox .picLink {
+    width: 300px;
+    float: right;
+    text-align: center;
+}
+
+.contentBox .topicBox {
+    margin-top: 30px;
+}
+
+.contentBox .topicBox .topic{
+    float: left;
+    width: 400px;
+    text-align: center;
+}
+
+.contentBox .topicBox .topic p{
+    line-height: 30px;
+}
+
+/* 链接部分 */
+.linkBox {
+    background-color: #E1F2F9;
+}
+
+.linkBox ul {
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+.linkBox ul li {
+    line-height: 40px;
+    padding: 0 10px;
+    font-size: 14px;
+}
+
+/* 页脚部分 */
+.copyBox {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background:#08A5E0;
+    font-size: 14px;
+    color: #333;
+    }
