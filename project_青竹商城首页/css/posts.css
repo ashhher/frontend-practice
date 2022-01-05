@@ -1,0 +1,126 @@
+.content_posts {
+    padding-top: 68px;
+    background-color: #f2f2f2;
+    font-size: 14px;
+}
+
+.content_posts .content_inner {
+    width: 1120px;
+    padding: 20px;
+    background-color: #fff;
+    padding-bottom: 50px;
+}
+
+.content_posts .content_inner .bread_nav{
+    padding: 10px 0;
+    border-bottom: 1px solid #dddddd;
+    color: #888;
+    font-size: 16px;
+}
+
+.content_posts .content_inner .bread_nav .cur{
+    color: #333;
+}
+
+.content_posts .content_inner .post_list {
+    width: 75%;
+    float: left;
+}
+
+.content_posts .content_inner .post_list .post {
+    padding: 20px 0;
+    border-bottom: 2px solid #ddd;
+    transition: all 0.5s;
+}
+
+.content_posts .content_inner .post_list .post:last-child {
+    border: none;
+}
+
+.content_posts .content_inner .post_list .post:hover {
+    background-color: #ddd;
+}
+
+.content_posts .content_inner .post_list .post .post_img{
+    float: left;
+    width: 20%;
+    text-align: center;
+}
+
+.content_posts .content_inner .post_list .post .post_img img{
+    width: 80%;
+}
+
+.content_posts .content_inner .post_list .post .post_content{
+    float: left;
+    width: 75%;
+    padding-left: 10px;
+}
+
+.content_posts .content_inner .post_list .post .post_content .post_title{
+    font-size: 18px;
+    font-weight: 600;
+    color: #555;
+}
+
+.content_posts .content_inner .post_list .post .post_content .post_time{
+    font-size: 12px;
+    color: #888;
+    margin: 5px 0 10px 0;
+}
+
+.content_posts .content_inner .post_list .post .post_content .post_detail{
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.content_posts .content_inner .post_list .post .post_content .post_tag{
+    color: #888;
+}
+
+.content_posts .content_inner .post_sidebar {
+    width: 20%;
+    float: right;
+}
+
+.content_posts .content_inner .post_sidebar .title {
+    font-size: 16px;
+    color: #666;
+    line-height: 40px;
+    border-bottom: 1px solid #ddd;
+}
+
+.content_posts .content_inner .post_type {
+    line-height: 40px;
+    color: #666;
+}
+
+.content_posts .content_inner .post_type a{
+    display: block;
+    transition: all 0.3s;
+    border-bottom: 1px solid #ddd;
+}
+
+.content_posts .content_inner .post_type a:hover{
+    background-color: #eee;
+}
+
+.content_posts .content_inner .post_type span{
+    margin: 0 10px;
+}
+
+.content_posts .content_inner .post_tag{
+    margin-top: 20px;
+}
+
+.content_posts .content_inner .post_tag ul{
+    margin-top: 10px;
+}
+.content_posts .content_inner .post_tag li{
+    float: left;
+    background-color: #eee;
+    padding: 2px 5px;
+    margin-right: 10px;
+    color: #888;
+}
