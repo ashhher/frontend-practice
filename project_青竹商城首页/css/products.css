@@ -1,0 +1,127 @@
+.content_product {
+    padding-top: 68px;
+    background-color: #f2f2f2;
+    font-size: 14px;
+}
+
+.content_product .content_inner {
+    width: 1120px;
+    padding: 20px;
+    background-color: #fff;
+    
+}
+
+.content_product .content_inner .bread_nav{
+    padding: 10px 0;
+    border-bottom: 1px solid #dddddd;
+    color: #888;
+    font-size: 16px;
+}
+
+.content_product .content_inner .bread_nav .cur{
+    color: #333;
+}
+
+.content_product .content_inner .s_type table{
+    width: 100%;
+    margin: 20px 0;
+    line-height: 52px;
+    color: #555;
+    border-collapse: separate;
+    border: 1px solid #dddddd;
+    border-radius: 4px;
+}
+
+.content_product .content_inner .s_type table tr:first-child th,
+.content_product .content_inner .s_type table tr:first-child td{
+    border-bottom: 1px solid #dddddd;
+    
+}
+
+.content_product .content_inner .s_type table th {
+    text-align: center;
+    font-weight: 600;
+    width: 100px;
+    border-right: 1px solid #dddddd;
+}
+
+.content_product .content_inner .s_type table tr:last-child {
+    background-color: #f3f4f4;
+}
+
+.content_product .content_inner .s_type table a {
+    padding: 0 10px;
+}
+
+.content_product .content_inner .s_type table a:hover {
+    text-decoration: underline;
+}
+
+.content_product .content_inner .s_detail .sort {
+    float: left;
+    padding: 10px;
+    color: #888;
+}
+.content_product .content_inner .s_detail .sort span {
+    padding: 0 10px;
+}
+
+.content_product .content_inner .s_detail .sort span:first-child {
+    font-weight: 600;
+}
+
+.content_product .content_inner .s_detail .sort a {
+    border: 1px solid #ddd;
+    padding: 5px 10px;
+    margin-right: 10px;
+}
+
+.content_product .content_inner .s_detail .amount {
+    float: right;
+    padding-right: 20px;
+    line-height: 38px;
+}
+
+.content_product .content_inner .s_detail .amount span {
+    padding: 0 10px;
+    color: #999;
+}
+
+.content_product .content_inner .s_products {
+    margin: 10px 0;
+}
+
+.content_product .content_inner .s_products li {
+    float: left;
+    width: 260px;
+    height: 350px;
+    margin: 10px;
+    background-color: #fff;
+    padding-top: 0;
+}
+
+.content_product .content_inner .s_products li .pic {
+    width: 100%;
+}
+
+.content_product .content_inner .page {
+    float: right;
+    line-height: 30px;
+}
+
+.content_product .content_inner .page span {
+    color: #888;
+    margin: 0 10px;
+}
+
+.content_product .content_inner .page a {
+    display: inline-block;
+    width: 30px;
+    text-align: center;
+}
+
+.content_product .content_inner .page .cur {
+    background-color: #9dafb8;
+    color: #fff;
+    border-radius: 3px;
+}
