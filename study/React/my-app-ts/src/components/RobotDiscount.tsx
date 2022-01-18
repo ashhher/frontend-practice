@@ -1,22 +1,22 @@
 import React, { useContext } from "react";
 import styles from "./Robot.module.css";
 import { appContext, appSetContext } from '../AppState'; // 【1】引用context
-import { withAddToCart } from './AddToCart'; // Using HOC
+import { useAddToCart } from './AddToCart'; // Using Hook
 
 export interface RobotProps {
     id: number;
     name: string;
     email: string;
-    addToCart: (id, name) => void; // Using HOC
 }
 
-const Robot: React.FC<RobotProps> = ({ id, name, email, addToCart }) => { // Using HOC
+const RobotDiscount: React.FC<RobotProps> = ({ id, name, email }) => {
     const globalState = useContext(appContext);
+    const addToCart = useAddToCart(); // Using Hook
 
     return (
         <div className={styles.cardContainer}>
             <li>
-                <h2>full price</h2>
+                <h2>50% off</h2>
                 <img src={`https://robohash.org/${id}`} alt="avatar" />
                 <h2>{name}</h2>
                 <p>{email}</p>
@@ -27,4 +27,4 @@ const Robot: React.FC<RobotProps> = ({ id, name, email, addToCart }) => { // Usi
     );
 };
 
-export default withAddToCart(Robot); // Using HOC
+export default RobotDiscount;

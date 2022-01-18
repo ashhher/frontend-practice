@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./ShoppingCard.module.css";
 import { FiShoppingCart } from "react-icons/fi";
+import { appContext } from "../AppState";
 
 interface Props {
 
@@ -11,6 +12,7 @@ interface State {
 }
 
 class ShoppingCard extends React.Component<Props, State> {
+
     constructor(props: Props) {
         super(props);
         this.state = {
@@ -21,31 +23,36 @@ class ShoppingCard extends React.Component<Props, State> {
     handleClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         console.log(e.target);
         console.log(e.currentTarget);
-        if((e.target as HTMLElement).nodeName === "SPAN") {
+        if ((e.target as HTMLElement).nodeName === "SPAN") {
             this.setState({ isOpen: !this.state.isOpen });
         }
     }
 
     render(): React.ReactNode {
-        return (
-            <div className={styles.cartContainer}>
+        return (<appContext.Consumer>{(globalState) => {
+            return <div className={styles.cartContainer}>
                 <button
                     className={styles.button}
                     onClick={(e) => this.handleClick(e)}
                 >
                     <FiShoppingCart />
-                    <span>购物车 2 (件)</span>
+                    <span>购物车 {globalState.shoppingCart.items.length} (件)</span>
                 </button>
                 <div className={styles.cartDropDown}
                     style={{
                         display: this.state.isOpen ? "block" : "none"
                     }}>
                     <ul>
-                        <li>Robot 1</li>
-                        <li>Robot 2</li>
+                        {globalState.shoppingCart.items.map(i => (
+                            <li>{i.name}</li>
+                        ))}
                     </ul>
                 </div>
             </div>
+        }}
+
+        </appContext.Consumer>
+
         )
     }
 }
