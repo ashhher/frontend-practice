@@ -13,11 +13,11 @@ export const SideMenu: React.FC = () => {
                     title={<span><GlobalOutlined style={{ marginRight: 5 }} />{m.title}</span>}>
                     {m.subMenu.map((sm, smindex) => (
                         <Menu.SubMenu
-                            key={`sub-menu-${smindex}`}
+                            key={`sub-menu-${index}-${smindex}`}
                             title={<span><GlobalOutlined style={{ marginRight: 5 }} />{sm.title}</span>}>
                             {sm.subMenu.map((sms, smsindex) => (
                                 <Menu.Item
-                                    key={`sub-sub-menu-${smsindex}`}>
+                                    key={`sub-sub-menu-${index}-${smindex}-${smsindex}`}>
                                     <span><GlobalOutlined style={{ marginRight: 5 }} />{sms}</span>
                                 </Menu.Item>
                             ))}

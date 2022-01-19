@@ -14,9 +14,9 @@ export const ProductImage: React.FC<PropsType> = ({ id, size, title, imageSrc, p
     return (
         <>
             {size === "large" ? (
-                <img src={imageSrc} alt="product image" className={styles["large-image"]} />
+                <img src={imageSrc} alt="product" className={styles["large-image"]} />
             ) : (
-                <img src={imageSrc} alt="product image" className={styles["small-image"]} />
+                <img src={imageSrc} alt="product" className={styles["small-image"]} />
             )}
             <div>
                 <Typography.Text type="secondary">{title.slice(0, 25)}</Typography.Text>
