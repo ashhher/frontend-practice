@@ -10,6 +10,7 @@ import sideImage3 from "../../assets/images/sider_2019_12-09.png";
 import { productList1, productList2, productList3 } from "../../mock/mockup";
 
 export class HomePage extends React.Component {
+
     render(): React.ReactNode {
         return (<>
             {/* header */}

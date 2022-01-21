@@ -2,9 +2,19 @@ import React from "react";
 import styles from "./Header.module.css";
 import logo from '../../assets/logo.svg';
 import { Layout, Typography, Input, Menu, Button, Dropdown } from "antd";
-import { GlobalOutlined } from '@ant-design/icons'
+import { GlobalOutlined } from '@ant-design/icons';
+import { useNavigate, useLocation } from "react-router-dom";
 
 export const Header: React.FC = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const toPage = (url: string) => {
+        if (location.pathname === (url + '/'))
+            window.location.reload();
+        else
+            navigate(`${url}/`);
+    }
     return (
         <div className={styles['app-header']}>
             {/* top-header */}
@@ -19,13 +29,12 @@ export const Header: React.FC = () => {
                                 <Menu.Item>英文</Menu.Item>
                             </Menu>
                         }
-                        icon={<GlobalOutlined />}
-                    >
+                        icon={<GlobalOutlined />}>
                         语言
                     </Dropdown.Button>
                     <Button.Group className={styles['button-group']}>
-                        <Button>注册</Button>
-                        <Button>登录</Button>
+                        <Button onClick={() => toPage('register')}>注册</Button>
+                        <Button onClick={() => toPage('signIn')}>登录</Button>
                     </Button.Group>
                 </div>
 
@@ -33,8 +42,11 @@ export const Header: React.FC = () => {
 
             {/* main-header */}
             <Layout.Header className={styles['main-header']}>
-                <img src={logo} alt="logo" className={styles['App-logo']} />
-                <Typography.Title level={3} className={styles.title}>React旅游网</Typography.Title>
+                <span onClick={() => toPage('')}>
+                    <img src={logo} alt="logo" className={styles['App-logo']} />
+                    <Typography.Title level={3} className={styles.title}>React旅游网</Typography.Title>
+                </span>
+
                 <Input.Search
                     placeholder={'请输入旅游目的地、主题、或关键字'}
                     className={styles['search-input']} />
