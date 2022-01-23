@@ -6,6 +6,7 @@ import { GlobalOutlined } from '@ant-design/icons';
 import { useNavigate, useLocation } from "react-router-dom";
 import store from "../../redux/store";
 import { useTranslation } from "react-i18next";
+import { addLanguageActionCreator, changeLanguageActionCreator } from "../../redux/language/languageActions";
 
 
 export const Header: React.FC = () => {
@@ -33,16 +34,10 @@ export const Header: React.FC = () => {
     const menuClickHandler = (e) => {
         if (e.key === 'new') {
             const code = languageList.length;
-            const action = {
-                type: "add_language",
-                payload: { code: "nl-" + code, name: "New Language " + code },
-            };
+            const action = addLanguageActionCreator("New Language " + code, "nl-" + code);
             store.dispatch(action);
         } else {
-            const action = {
-                type: "change_language",
-                payload: e.key,
-            };
+            const action = changeLanguageActionCreator(e.key);
             store.dispatch(action);
         }
     };
