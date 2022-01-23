@@ -6,6 +6,7 @@ import image2 from '../../assets/images/icon-720944_640.png';
 import image3 from '../../assets/images/follow-826033_640.png';
 import image4 from '../../assets/images/facebook-807588_640.png';
 import { Divider, Typography, Row, Col } from "antd";
+import { useTranslation } from "react-i18next";
 
 const companies = [
     { src: image1, title: "Microsoft" },
@@ -15,10 +16,12 @@ const companies = [
 ]
 
 export const Partners: React.FC = (props) => {
+    const { t } = useTranslation();
+
     return (
         <div className={styles.content}>
             <Divider orientation="left">
-                <Typography.Title level={3} type="secondary">合作企业</Typography.Title>
+                <Typography.Title level={3} type="secondary">{t("home_page.joint_venture")}</Typography.Title>
             </Divider>
             <Row>
                 {companies.map((c, index) => (
