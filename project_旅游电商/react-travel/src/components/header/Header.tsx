@@ -13,21 +13,14 @@ import { useDispatch } from "react-redux";
 export const Header: React.FC = () => {
     const navigate = useNavigate();
     const location = useLocation();
+
+    // i18next
     const { t } = useTranslation();
 
+    // react-redux 自动subscribe
     const language = useSelector((state) => state.language);
     const languageList = useSelector((state) => state.languageList);
     const dispatch = useDispatch();
-
-    // const [language, setLanguage] = useState<string>(storeState.language);
-    // const [languageList, setLanguageList] = useState<any>(storeState.languageList);
-
-    // 订阅store，此处因为使用react-redux 可省去
-    // store.subscribe(() => {
-    //     const storeState = store.getState();
-    //     setLanguage(storeState.language);
-    //     setLanguageList(storeState.languageList);
-    // });
 
     // 跳转页面
     const toPage = (url: string) => {
@@ -37,16 +30,13 @@ export const Header: React.FC = () => {
             navigate(`${url}/`);
     };
 
-    // 语言点击事件
+    // 语言目录点击事件
     const menuClickHandler = (e) => {
         if (e.key === 'new') {
             const code = languageList.length;
-            // const action = addLanguageActionCreator("New Language " + code, "nl-" + code);
-            // store.dispatch(action);
+            // create action + dispatch
             dispatch(addLanguageActionCreator("New Language " + code, "nl-" + code));
         } else {
-            // const action = changeLanguageActionCreator(e.key);
-            // store.dispatch(action);
             dispatch(changeLanguageActionCreator(e.key));
         }
     };
