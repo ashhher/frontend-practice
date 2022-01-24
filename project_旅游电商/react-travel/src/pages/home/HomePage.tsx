@@ -11,11 +11,7 @@ import sideImage1 from "../../assets/images/sider_2019_02-04-2.png";
 import sideImage2 from "../../assets/images/sider_2019_02-04.png";
 import sideImage3 from "../../assets/images/sider_2019_12-09.png";
 import { RootState } from "../../redux/store";
-import {
-    fetchRecommandProductsStartActionCreator,
-    fetchRecommandProductsSuccessActionCreator,
-    fetchRecommandProductsFailActionCreator
-} from "../../redux/recommendProducts/recommendProductsActions";
+import { fetchrecommendProductsActionCreator } from "../../redux/recommendProducts/recommendProductsActions";
 
 // 【1】映射State-Props 传入尾部connect函数的参数
 const mapStateToProps = (state: RootState) => {
@@ -29,15 +25,9 @@ const mapStateToProps = (state: RootState) => {
 // 【2】映射Dispatch函数-Props 传入尾部connect函数的参数
 const mapDispatchToProps = (dispatch) => {
     return {
-        fetchStart: () => {
-            dispatch(fetchRecommandProductsStartActionCreator());
-        },
-        fetchSuccess: (data) => {
-            dispatch(fetchRecommandProductsSuccessActionCreator(data));
-        },
-        fetchFail: (error) => {
-            dispatch(fetchRecommandProductsFailActionCreator(error));
-        },
+        fetchRecommendProducts: () => {
+            dispatch(fetchrecommendProductsActionCreator());
+        }
     }
 }
 
@@ -45,19 +35,9 @@ const mapDispatchToProps = (dispatch) => {
 type PropsType = WithTranslation & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
 class HomePageComponent extends React.Component<PropsType> {
-    async componentDidMount() {
+    componentDidMount() {
         // 【4】dispatch函数调用
-        this.props.fetchStart();
-        try {
-            // axios异步网络请求
-            const { data } = await axios.get("http://123.56.149.216:8080/api/productCollections");
-            // 更新state
-            this.props.fetchSuccess(data);
-        } catch (error) {
-            if (error instanceof Error) {
-                this.props.fetchFail(error.message);
-            }
-        }
+        this.props.fetchRecommendProducts();
     }
 
     render(): React.ReactNode {
