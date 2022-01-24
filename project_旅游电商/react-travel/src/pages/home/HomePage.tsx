@@ -5,51 +5,64 @@ import { Header, Footer, SideMenu, Carousel, ProductCollection, Partners } from 
 import { Row, Col, Typography, Spin } from "antd";
 import { withTranslation, WithTranslation } from "react-i18next";
 import axios from "axios";
+import { connect } from "react-redux";
 
 import sideImage1 from "../../assets/images/sider_2019_02-04-2.png";
 import sideImage2 from "../../assets/images/sider_2019_02-04.png";
 import sideImage3 from "../../assets/images/sider_2019_12-09.png";
+import { RootState } from "../../redux/store";
+import {
+    fetchRecommandProductsStartActionCreator,
+    fetchRecommandProductsSuccessActionCreator,
+    fetchRecommandProductsFailActionCreator
+} from "../../redux/recommendProducts/recommendProductsActions";
 
-interface State {
-    loading: boolean,
-    error: string | null,
-    productList: any[],
+// 【1】映射State-Props 传入尾部connect函数的参数
+const mapStateToProps = (state: RootState) => {
+    return {
+        loading: state.recommendProducts.loading,
+        error: state.recommendProducts.error,
+        productList: state.recommendProducts.productList,
+    }
 }
 
-class HomePageComponent extends React.Component<WithTranslation, State> {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            loading: true,
-            error: null,
-            productList: [],
-        }
+// 【2】映射Dispatch函数-Props 传入尾部connect函数的参数
+const mapDispatchToProps = (dispatch) => {
+    return {
+        fetchStart: () => {
+            dispatch(fetchRecommandProductsStartActionCreator());
+        },
+        fetchSuccess: (data) => {
+            dispatch(fetchRecommandProductsSuccessActionCreator(data));
+        },
+        fetchFail: (error) => {
+            dispatch(fetchRecommandProductsFailActionCreator(error));
+        },
     }
+}
 
+// 【3】类型定义
+type PropsType = WithTranslation & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
+
+class HomePageComponent extends React.Component<PropsType> {
     async componentDidMount() {
+        // 【4】dispatch函数调用
+        this.props.fetchStart();
         try {
             // axios异步网络请求
             const { data } = await axios.get("http://123.56.149.216:8080/api/productCollections");
             // 更新state
-            this.setState({
-                loading: false,
-                error: null,
-                productList: data,
-            });
+            this.props.fetchSuccess(data);
         } catch (error) {
             if (error instanceof Error) {
-                this.setState({
-                    loading: false,
-                    error: error.message,
-                });
+                this.props.fetchFail(error.message);
             }
         }
     }
 
     render(): React.ReactNode {
-        const { t } = this.props;
-        const { loading, error, productList } = this.state;
+        // 【5】props中获取state
+        const { loading, error, productList, t } = this.props;
 
         if (loading) {
             return (<Spin
@@ -110,4 +123,5 @@ class HomePageComponent extends React.Component<WithTranslation, State> {
     }
 }
 
-export const HomePage = withTranslation()(HomePageComponent);
+// 【6】connect
+export const HomePage = connect(mapStateToProps, mapDispatchToProps)(withTranslation()(HomePageComponent));
