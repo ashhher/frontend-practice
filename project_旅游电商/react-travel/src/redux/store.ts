@@ -9,7 +9,7 @@ const rootReducer = combineReducers({
     recommendProducts: recommendProductsReducer
 });
 
-const store = createStore(rootReducer, applyMiddleware(thunk, stateLog));
+const store = createStore(rootReducer, applyMiddleware(thunk));
 
 // typescript 类型约束
 export type RootState = ReturnType<typeof store.getState>;

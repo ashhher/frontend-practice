@@ -4,7 +4,6 @@ import styles from "./HomePage.module.css";
 import { Header, Footer, SideMenu, Carousel, ProductCollection, Partners } from "../../components/index";
 import { Row, Col, Typography, Spin } from "antd";
 import { withTranslation, WithTranslation } from "react-i18next";
-import axios from "axios";
 import { connect } from "react-redux";
 
 import sideImage1 from "../../assets/images/sider_2019_02-04-2.png";
@@ -44,6 +43,7 @@ class HomePageComponent extends React.Component<PropsType> {
         // 【5】props中获取state
         const { loading, error, productList, t } = this.props;
 
+        // 处理loading及报错
         if (loading) {
             return (<Spin
                 size="large"
@@ -56,7 +56,6 @@ class HomePageComponent extends React.Component<PropsType> {
                 }}
             />);
         }
-
         if (error) {
             return <h1>网站出错：{error}</h1>
         }
