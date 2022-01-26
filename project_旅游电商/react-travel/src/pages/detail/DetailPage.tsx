@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./DetailPage.module.css";
-import { useTranslation } from "react-i18next";
 import axios from "axios";
 import { Col, Row, Spin, DatePicker, Divider, Typography, Anchor, Menu } from "antd";
 import { Footer, Header, ProductComments, ProductIntro } from "../../components";
 import { commentMockData } from "./mockup";
+import { useSelector } from "../../redux/hooks";
+import { useDispatch } from "react-redux";
+import { productDetailSlice, getProductDetail } from "../../redux/productDetail/productDetailSlice";
 
 const { RangePicker } = DatePicker;
 
@@ -16,29 +18,22 @@ type DetailPageParams = {
 export const DetailPage: React.FC = () => {
     // 接收路由参数
     const { tourId } = useParams<DetailPageParams>();
-    // 填入参数进行初始化
-    const [loading, setLoading] = useState<boolean>(true);
-    const [product, setProduct] = useState<any>(null);
-    const [error, setError] = useState<string | null>(null);
 
-    const { t } = useTranslation();
+    // 填入参数进行初始化
+    // const [loading, setLoading] = useState<boolean>(true);
+    // const [product, setProduct] = useState<any>(null);
+    // const [error, setError] = useState<string | null>(null);
+
+    // 使用redux进行初始化
+    const loading = useSelector(state => state.productDetail.loading);
+    const error = useSelector(state => state.productDetail.error);
+    const product = useSelector(state => state.productDetail.data);
+
+    const dispatch = useDispatch();
 
     // 网络请求
     useEffect(() => {
-        const fetchData = async () => {
-            setLoading(true);
-            try {
-                const { data } = await axios.get(`http://123.56.149.216:8080/api/touristRoutes/${tourId}`);
-                setProduct(data);
-                setLoading(false);
-            } catch (error) {
-                if (error instanceof Error) {
-                    setError(error.message);
-                    setLoading(false);
-                }
-            }
-        };
-        fetchData();
+        dispatch(getProductDetail(tourId ? tourId : ''));
     }, []);
 
     // 处理loading及报错
@@ -124,9 +119,9 @@ export const DetailPage: React.FC = () => {
                 {/* 产品评价 */}
                 <div id="comments" className={styles["product-detail-container"]}>
                     <Divider orientation={'center'}>
-                        <Typography.Title level={3}>预定须知</Typography.Title>
+                        <Typography.Title level={3}>产品评价</Typography.Title>
                     </Divider>
-                    <ProductComments data={commentMockData} />
+                    <div style={{ margin: 50 }}><ProductComments data={commentMockData} /></div>
                 </div>
             </div>
             <Footer />
