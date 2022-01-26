@@ -19,7 +19,7 @@ export const ProductCollection: React.FC<PropsType> = ({ title, sideImage, produ
                 </Col>
                 <Col span={20}>
                     <Row>
-                        <Col span={12} style={{position: 'relative'}}>
+                        <Col span={12} style={{ position: 'relative' }}>
                             <ProductImage
                                 id={products[0].id}
                                 size={"large"}

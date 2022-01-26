@@ -4,41 +4,40 @@ import logo from '../../assets/logo.svg';
 import { Layout, Typography, Input, Menu, Button, Dropdown } from "antd";
 import { GlobalOutlined } from '@ant-design/icons';
 import { useNavigate, useLocation } from "react-router-dom";
-import store from "../../redux/store";
 import { useTranslation } from "react-i18next";
 import { addLanguageActionCreator, changeLanguageActionCreator } from "../../redux/language/languageActions";
+import { useSelector } from "../../redux/hooks"
+import { useDispatch } from "react-redux";
 
 
 export const Header: React.FC = () => {
     const navigate = useNavigate();
     const location = useLocation();
-    const storeState = store.getState();
+
+    // i18next
     const { t } = useTranslation();
 
-    const [language, setLanguage] = useState<string>(storeState.language);
-    const [languageList, setLanguageList] = useState<any>(storeState.languageList);
+    // react-redux 自动subscribe
+    const language = useSelector((state) => state.language.language);
+    const languageList = useSelector((state) => state.language.languageList);
+    const dispatch = useDispatch();
 
-    store.subscribe(() => {
-        const storeState = store.getState();
-        setLanguage(storeState.language);
-        setLanguageList(storeState.languageList);
-    });
-
+    // 跳转页面
     const toPage = (url: string) => {
-        if (location.pathname === (url + '/'))
+        if (location.pathname === url)
             window.location.reload();
         else
-            navigate(`${url}/`);
+            navigate(`${url}`);
     };
 
+    // 语言目录点击事件
     const menuClickHandler = (e) => {
         if (e.key === 'new') {
             const code = languageList.length;
-            const action = addLanguageActionCreator("New Language " + code, "nl-" + code);
-            store.dispatch(action);
+            // create action + dispatch
+            dispatch(addLanguageActionCreator("New Language " + code, "nl-" + code));
         } else {
-            const action = changeLanguageActionCreator(e.key);
-            store.dispatch(action);
+            dispatch(changeLanguageActionCreator(e.key));
         }
     };
 
@@ -65,8 +64,8 @@ export const Header: React.FC = () => {
                         })}
                     </Dropdown.Button>
                     <Button.Group className={styles['button-group']}>
-                        <Button onClick={() => toPage('register')}>{t("header.register")}</Button>
-                        <Button onClick={() => toPage('signIn')}>{t("header.signin")}</Button>
+                        <Button onClick={() => toPage('/register')}>{t("header.register")}</Button>
+                        <Button onClick={() => toPage('/signIn')}>{t("header.signin")}</Button>
                     </Button.Group>
                 </div>
 
@@ -74,34 +73,35 @@ export const Header: React.FC = () => {
 
             {/* main-header */}
             <Layout.Header className={styles['main-header']}>
-                <span onClick={() => toPage('')}>
+                <span onClick={() => toPage('/')}>
                     <img src={logo} alt="logo" className={styles['App-logo']} />
                     <Typography.Title level={3} className={styles.title}>{t("header.title")}</Typography.Title>
                 </span>
 
                 <Input.Search
                     placeholder={t("header.input")}
-                    className={styles['search-input']} />
+                    className={styles['search-input']}
+                    onSearch={(keyword) => { toPage(`/search/${keyword}`) }} />
             </Layout.Header>
 
             {/* menu-header */}
             <Menu mode='horizontal' className={styles['main-menu']}>
                 <Menu.Item key={1}>{t("header.home_page")}</Menu.Item>
-                <Menu.Item key={1}>{t("header.weekend")}</Menu.Item>
-                <Menu.Item key={2}>{t("header.group")}</Menu.Item>
-                <Menu.Item key={3}>{t("header.backpack")}</Menu.Item>
-                <Menu.Item key={4}>{t("header.private")}</Menu.Item>
-                <Menu.Item key={5}>{t("header.cruise")}</Menu.Item>
-                <Menu.Item key={6}>{t("header.hotel")}</Menu.Item>
-                <Menu.Item key={7}>{t("header.local")}</Menu.Item>
-                <Menu.Item key={8}>{t("header.theme")}</Menu.Item>
-                <Menu.Item key={9}>{t("header.custom")}</Menu.Item>
-                <Menu.Item key={10}>{t("header.study")}</Menu.Item>
-                <Menu.Item key={11}>{t("header.visa")}</Menu.Item>
-                <Menu.Item key={12}>{t("header.enterprise")}</Menu.Item>
-                <Menu.Item key={13}>{t("header.high_end")}</Menu.Item>
-                <Menu.Item key={14}>{t("header.outdoor")}</Menu.Item>
-                <Menu.Item key={15}>{t("header.insurance")}</Menu.Item>
+                <Menu.Item key={2}>{t("header.weekend")}</Menu.Item>
+                <Menu.Item key={3}>{t("header.group")}</Menu.Item>
+                <Menu.Item key={4}>{t("header.backpack")}</Menu.Item>
+                <Menu.Item key={5}>{t("header.private")}</Menu.Item>
+                <Menu.Item key={6}>{t("header.cruise")}</Menu.Item>
+                <Menu.Item key={7}>{t("header.hotel")}</Menu.Item>
+                <Menu.Item key={8}>{t("header.local")}</Menu.Item>
+                <Menu.Item key={9}>{t("header.theme")}</Menu.Item>
+                <Menu.Item key={10}>{t("header.custom")}</Menu.Item>
+                <Menu.Item key={11}>{t("header.study")}</Menu.Item>
+                <Menu.Item key={12}>{t("header.visa")}</Menu.Item>
+                <Menu.Item key={13}>{t("header.enterprise")}</Menu.Item>
+                <Menu.Item key={14}>{t("header.high_end")}</Menu.Item>
+                <Menu.Item key={15}>{t("header.outdoor")}</Menu.Item>
+                <Menu.Item key={16}>{t("header.insurance")}</Menu.Item>
             </Menu>
         </div>
     )
