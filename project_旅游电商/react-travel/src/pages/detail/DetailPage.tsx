@@ -1,13 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import styles from "./DetailPage.module.css";
-import axios from "axios";
 import { Col, Row, Spin, DatePicker, Divider, Typography, Anchor, Menu } from "antd";
 import { Footer, Header, ProductComments, ProductIntro } from "../../components";
 import { commentMockData } from "./mockup";
 import { useSelector } from "../../redux/hooks";
 import { useDispatch } from "react-redux";
-import { productDetailSlice, getProductDetail } from "../../redux/productDetail/productDetailSlice";
+import { getProductDetail } from "../../redux/productDetail/productDetailSlice";
 
 const { RangePicker } = DatePicker;
 

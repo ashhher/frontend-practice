@@ -5,11 +5,13 @@ import languageReducer from "./language/languageReducer";
 import { stateLog } from "./middlewares/stateLog";
 import recommendProductsReducer from "./recommendProducts/recommendProductsReducer";
 import { productDetailSlice } from "./productDetail/productDetailSlice";
+import { productSearchSlice } from "./productSearch/productSearchSlice";
 
 const rootReducer = combineReducers({
     language: languageReducer,
     recommendProducts: recommendProductsReducer,
-    productDetail: productDetailSlice.reducer
+    productDetail: productDetailSlice.reducer,
+    productSearch: productSearchSlice.reducer,
 });
 
 // 原生createStore 

@@ -24,10 +24,10 @@ export const Header: React.FC = () => {
 
     // 跳转页面
     const toPage = (url: string) => {
-        if (location.pathname === (url + '/'))
+        if (location.pathname === url)
             window.location.reload();
         else
-            navigate(`${url}/`);
+            navigate(`${url}`);
     };
 
     // 语言目录点击事件
@@ -64,8 +64,8 @@ export const Header: React.FC = () => {
                         })}
                     </Dropdown.Button>
                     <Button.Group className={styles['button-group']}>
-                        <Button onClick={() => toPage('register')}>{t("header.register")}</Button>
-                        <Button onClick={() => toPage('signIn')}>{t("header.signin")}</Button>
+                        <Button onClick={() => toPage('/register')}>{t("header.register")}</Button>
+                        <Button onClick={() => toPage('/signIn')}>{t("header.signin")}</Button>
                     </Button.Group>
                 </div>
 
@@ -73,14 +73,15 @@ export const Header: React.FC = () => {
 
             {/* main-header */}
             <Layout.Header className={styles['main-header']}>
-                <span onClick={() => toPage('')}>
+                <span onClick={() => toPage('/')}>
                     <img src={logo} alt="logo" className={styles['App-logo']} />
                     <Typography.Title level={3} className={styles.title}>{t("header.title")}</Typography.Title>
                 </span>
 
                 <Input.Search
                     placeholder={t("header.input")}
-                    className={styles['search-input']} />
+                    className={styles['search-input']}
+                    onSearch={(keyword) => { toPage(`/search/${keyword}`) }} />
             </Layout.Header>
 
             {/* menu-header */}
