@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./HomePage.module.css";
 
-import { Header, Footer, SideMenu, Carousel, ProductCollection, Partners } from "../../components/index";
+import { SideMenu, Carousel, ProductCollection, Partners } from "../../components/index";
 import { Row, Col, Typography, Spin } from "antd";
 import { withTranslation, WithTranslation } from "react-i18next";
 import { connect } from "react-redux";
@@ -11,6 +11,7 @@ import sideImage2 from "../../assets/images/sider_2019_02-04.png";
 import sideImage3 from "../../assets/images/sider_2019_12-09.png";
 import { RootState } from "../../redux/store";
 import { fetchrecommendProductsActionCreator } from "../../redux/recommendProducts/recommendProductsActions";
+import { MainLayout } from "../../layouts";
 
 // 【1】映射State-Props 传入尾部connect函数的参数
 const mapStateToProps = (state: RootState) => {
@@ -61,12 +62,7 @@ class HomePageComponent extends React.Component<PropsType> {
         }
 
         return (<>
-            {/* header */}
-            <Header />
-
-            {/* page content */}
-            <div className={styles['page-content']}>
-
+            <MainLayout>
                 {/* side menu and carousel */}
                 <Row style={{ marginTop: 20 }}>
                     <Col span={6} > <SideMenu /></Col>
@@ -91,13 +87,8 @@ class HomePageComponent extends React.Component<PropsType> {
                     sideImage={sideImage3}
                     products={productList[2].touristRoutes}
                 />
-
                 <Partners />
-
-            </div>
-
-            {/* footer */}
-            <Footer />
+            </MainLayout>
         </>);
     }
 }
