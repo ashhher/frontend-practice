@@ -8,7 +8,7 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import axios from "axios";
 
-axios.defaults.headers['x-icode'] = '7047F853AA569426';
+axios.defaults.headers['x-icode'] = 'D9538FB9AD51233C';
 
 ReactDOM.render(
   <React.StrictMode>

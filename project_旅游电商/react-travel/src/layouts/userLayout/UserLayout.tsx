@@ -5,27 +5,40 @@ import { Link } from "react-router-dom";
 import { CaretDownOutlined } from "@ant-design/icons";
 import { Layout, Menu, Dropdown, Button } from "antd";
 import { useTranslation } from "react-i18next";
+import { useSelector } from "../../redux/hooks";
+import { useDispatch } from "react-redux";
+import { changeLanguageActionCreator } from "../../redux/language/languageActions";
 
 const { Header, Footer, Content } = Layout;
 
 export const UserLayout: React.FC = (props) => {
     const { t } = useTranslation();
 
-    const menu = (
-        <Menu>
-            <Menu.Item>中文</Menu.Item>
-            <Menu.Item>English</Menu.Item>
-        </Menu>
-    );
+    // react-redux 自动subscribe
+    const language = useSelector((state) => state.language.language);
+    const languageList = useSelector((state) => state.language.languageList);
+    const dispatch = useDispatch();
+
+    const menuClickHandler = (e) => {
+        dispatch(changeLanguageActionCreator(e.key));
+    };
 
     return (
         <Layout className={styles["user-layout-container"]}>
             <Header className={styles["header"]}>
                 <div className={styles["lang"]}>
-                    <Dropdown overlay={menu}>
+                    <Dropdown overlay={
+                        <Menu onClick={menuClickHandler}>
+                            {languageList.map(lang => {
+                                return <Menu.Item key={lang.code}>{lang.name}</Menu.Item>
+                            })}
+                        </Menu>
+                    }>
                         <Button>
-                            {" "}
-                            选择语言 <CaretDownOutlined />
+                            {languageList.map(lang => {
+                                if (lang.code === language)
+                                    return lang.name;
+                            })}<CaretDownOutlined />
                         </Button>
                     </Dropdown>
                 </div>
