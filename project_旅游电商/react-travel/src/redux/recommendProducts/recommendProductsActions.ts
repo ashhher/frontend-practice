@@ -54,7 +54,9 @@ export const fetchrecommendProductsActionCreator = (): ThunkAction<
     RootState,
     unknown,
     RecommendProductsAction
-> => async (dispatch, giveState) => {
+// dispatch 用于之后再次派发action
+// getState 用于获取之前的一些状态
+> => async (dispatch, getState) => {
     dispatch(fetchRecommendProductsStartActionCreator);
     try {
         // axios异步网络请求
