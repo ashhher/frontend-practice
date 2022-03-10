@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Header.module.css";
 import logo from '../../assets/logo.svg';
 import { Layout, Typography, Input, Menu, Button, Dropdown } from "antd";
@@ -8,6 +8,12 @@ import { useTranslation } from "react-i18next";
 import { addLanguageActionCreator, changeLanguageActionCreator } from "../../redux/language/languageActions";
 import { useSelector } from "../../redux/hooks"
 import { useDispatch } from "react-redux";
+import jwt_decode, { JwtPayload as DefaultJwtPayload } from "jwt-decode";
+import { userSlice } from "../../redux/user/userSlice";
+
+interface JwtPayload extends DefaultJwtPayload {
+    username: string
+}
 
 
 export const Header: React.FC = () => {
@@ -21,6 +27,21 @@ export const Header: React.FC = () => {
     const language = useSelector((state) => state.language.language);
     const languageList = useSelector((state) => state.language.languageList);
     const dispatch = useDispatch();
+
+    const jwt = useSelector((state) => state.user.token);
+    const [username, setUsername] = useState("");
+
+    useEffect(() => {
+        if (jwt) {
+            const token = jwt_decode<JwtPayload>(jwt);
+            setUsername(token.username);
+        }
+    }, [jwt]);
+
+    const onSignOut = () => {
+        dispatch(userSlice.actions.signOut());
+        toPage('/');
+    }
 
     // 跳转页面
     const toPage = (url: string) => {
@@ -63,10 +84,22 @@ export const Header: React.FC = () => {
                                 return lang.name;
                         })}
                     </Dropdown.Button>
-                    <Button.Group className={styles['button-group']}>
-                        <Button onClick={() => toPage('/register')}>{t("header.register")}</Button>
-                        <Button onClick={() => toPage('/signIn')}>{t("header.signin")}</Button>
-                    </Button.Group>
+                    {jwt ? (
+                        <Button.Group className={styles['button-group']}>
+                            <span>
+                                {t("header.welcome")}
+                                <Typography.Text strong>{username}</Typography.Text>
+                            </span>
+                            <Button >{t("header.shoppingCart")}</Button>
+                            <Button onClick={onSignOut}>{t("header.signOut")}</Button>
+                        </Button.Group>
+                    ) : (
+                        <Button.Group className={styles['button-group']}>
+                            <Button onClick={() => toPage('/register')}>{t("header.register")}</Button>
+                            <Button onClick={() => toPage('/signIn')}>{t("header.signin")}</Button>
+                        </Button.Group>
+                    )}
+
                 </div>
 
             </div>

@@ -24,9 +24,9 @@ export const signIn = createAsyncThunk(
             password: parameters.password
         });
         console.log("================");
-        
+
         console.log(data);
-        
+
         return data.token;
     }
 )
@@ -35,6 +35,11 @@ export const userSlice = createSlice({
     name: "user",
     initialState,
     reducers: {
+        signOut: (state) => {
+            state.token = null;
+            state.error = null;
+            state.loading = false;
+        }
     },
     extraReducers: {
         [signIn.pending.type]: (state) => {
