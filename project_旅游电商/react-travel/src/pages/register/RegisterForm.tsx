@@ -28,6 +28,7 @@ export const RegisterForm = () => {
 
     return (
         <Form
+            className={styles['register-form']}
             name="basic"
             labelCol={{
                 span: 8,
@@ -43,8 +44,6 @@ export const RegisterForm = () => {
             autoComplete="off"
         >
             <Form.Item
-            
-            className={styles['register-form-item']}
                 label="E-mail"
                 name="email"
                 rules={[
@@ -58,8 +57,6 @@ export const RegisterForm = () => {
             </Form.Item>
 
             <Form.Item
-            
-            className={styles['register-form-item']}
                 label="Password"
                 name="password"
                 rules={[
@@ -73,8 +70,6 @@ export const RegisterForm = () => {
             </Form.Item>
 
             <Form.Item
-            
-            className={styles['register-form-item']}
                 label="Confirm Password"
                 name="confirm"
                 hasFeedback
@@ -101,7 +96,7 @@ export const RegisterForm = () => {
                 name="remember"
                 valuePropName="checked"
                 wrapperCol={{
-                    offset: 4,
+                    offset: 8,
                     span: 16,
                 }}
             >
@@ -110,7 +105,7 @@ export const RegisterForm = () => {
 
             <Form.Item
                 wrapperCol={{
-                    offset: 4,
+                    offset: 8,
                     span: 16,
                 }}
             >
