@@ -1,77 +1,288 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
+
   <title>Frontend Mentor | Recipe page</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    * {
+      margin: 0;
+      padding: 0;
+
+      box-sizing: border-box;
+
+      font-size: 16px;
+      line-height: 1.75;
+      font-family: "Outfit", "young-serif",
+        sans-serif;
+      color: #575757;
+    }
+
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      background-color: #f4e5d8;
+
+      @media (max-width: 735px) {
+        background-color: #fff;
+      }
+    }
+
+    ul,
+    ol {
+      padding-left: 15px;
+
+    }
+
+    li {
+      line-height: 2;
+      padding-left: 15px;
+    }
+
+    ol>li::marker {
+      font-weight: 600;
+      color: #884134;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    td {
+      padding: 10px 20px;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    tr>td:nth-child(2) {
+      font-weight: 600;
+      color: #742d4c;
+    }
+
+    tr:last-of-type>td {
+      border-bottom: none;
+    }
+
+    .container {
+      max-width: 735px;
+      margin: 123px auto;
+
+      background-color: #fff;
+      border-radius: 20px;
+
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      @media (max-width: 735px) {
+        margin: 0;
+        border-radius: 0;
+      }
+    }
+
+    .contentContainer {
+      padding: 40px;
+      padding-top: 0;
+
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .recipeImg {
+      max-height: 300px;
+
+      padding: 40px;
+      padding-bottom: 0;
+
+      background-position: center center;
+      background-repeat: no-repeat;
+      border-radius: 10px;
+      overflow: hidden;
+
+      @media (max-width: 735px) {
+        padding: 0;
+        border-radius: 0;
+      }
+
+      img {
+        width: 100%;
+        max-height: 300px;
+        object-fit: cover;
+      }
+    }
+
+    .titleContainer {
+      margin: 10px auto;
+    }
+
+    .recipeTitle {
+      font-size: 36px;
+      font-weight: 600;
+      color: #292929;
+      font-family: "young-serif";
+    }
+
+    .desc {
+      margin-top: 10px;
+    }
+
+    .prepContainer {
+      margin-bottom: 10px;
+      padding: 20px;
+
+      border-radius: 10px;
+      background-color: #fef7fc;
+    }
+
+    .prepTitle {
+      font-size: 20px;
+      font-weight: 500;
+      color: #742d4c;
+    }
+
+    .prepContainer>ul>li::marker {
+      color: #742d4c;
+    }
+
+    .stepName {
+      font-weight: 700;
+    }
+
+    .sectionDivider {
+      height: 1px;
+      margin: 10px 0;
+      background-color: #e5e5e5;
+    }
+
+    .sectionContainer {}
+
+    .sectionTitle {
+      line-height: 2;
+      font-size: 30px;
+      font-weight: 600;
+      color: #884134;
+      font-family: "young-serif";
+    }
+
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
   </style>
 </head>
+
 <body>
+  <div class="container">
+    <div class="recipeImg">
+      <img src="./assets/images/image-omelette.jpeg" alt="Recipe Image">
+    </div>
 
-  Simple Omelette Recipe
+    <div class="contentContainer">
+      <div class="titleContainer">
+        <div class="recipeTitle">Simple Omelette Recipe</div>
+        <div class="recipeDesc">An easy and quick dish, perfect for any meal. This classic omelette combines beaten eggs
+          cooked to perfection, optionally filled with your choice of cheese, vegetables, or meats.</div>
+      </div>
 
-  An easy and quick dish, perfect for any meal. This classic omelette combines beaten eggs cooked 
-  to perfection, optionally filled with your choice of cheese, vegetables, or meats.
+      <div class="prepContainer">
+        <div class="prepTitle">Preparation time</div>
+        <ul>
+          <li><span class="stepName">Total:</span> Approximately 10 minutes</li>
+          <li><span class="stepName">Preparation:</span> 5 minutes</li>
+          <li><span class="stepName">Cooking:</span> 5 minutes</li>
+        </ul>
+      </div>
 
-  Preparation time
+      <div class="sectionContainer">
+        <div class="sectionTitle">Ingredients</div>
+        <ul>
+          <li>2-3 large eggs</li>
+          <li>Salt, to taste</li>
+          <li>Pepper, to taste</li>
+          <li>1 tablespoon of butter or oil</li>
+          <li>Optional fillings: cheese, diced vegetables, cooked meats, herbs</li>
+        </ul>
+      </div>
+      <div class="sectionDivider"></div>
 
-  Total: Approximately 10 minutes
-  Preparation: 5 minutes
-  Cooking: 5 minutes
+      <div class="sectionContainer">
+        <div class="sectionTitle">Instructions</div>
+        <ol>
+          <li><span class="stepName">Beat the eggs:</span> In a bowl, beat the eggs with a pinch of salt and pepper
+            until
+            they are well mixed. You can
+            add a tablespoon of water or milk for a fluffier texture.</li>
 
-  Ingredients
+          <li><span class="stepName">Heat the pan:</span> Place a non-stick frying pan over medium heat and add butter
+            or
+            oil.</li>
 
-  2-3 large eggs
-  Salt, to taste
-  Pepper, to taste
-  1 tablespoon of butter or oil
-  Optional fillings: cheese, diced vegetables, cooked meats, herbs
+          <li><span class="stepName">Cook the omelette:</span> Once the butter is melted and bubbling, pour in the eggs.
+            Tilt the pan to ensure the eggs
+            evenly coat the surface.</li>
 
-  Instructions
+          <li><span class="stepName">Add fillings (optional):</span> When the eggs begin to set at the edges but are
+            still
+            slightly runny in the middle,
+            sprinkle your chosen fillings over one half of the omelette.</li>
 
-  Beat the eggs: In a bowl, beat the eggs with a pinch of salt and pepper until they are well mixed. 
-  You can add a tablespoon of water or milk for a fluffier texture.
+          <li><span class="stepName">Fold and serve:</span> As the omelette continues to cook, carefully lift one edge
+            and
+            fold it over the fillings.
+            Let it cook for another minute, then slide it onto a plate.</li>
 
-  Heat the pan: Place a non-stick frying pan over medium heat and add butter or oil.
+          <li><span class="stepName">Enjoy:</span> Serve hot, with additional salt and pepper if needed.</li>
+          </ul>
+      </div>
+      <div class="sectionDivider"></div>
 
-  Cook the omelette: Once the butter is melted and bubbling, pour in the eggs. Tilt the pan to ensure 
-  the eggs evenly coat the surface.
+      <div class="sectionContainer">
+        <div class="sectionTitle">Nutrition</div>
+        <div class="desc"> The table below shows nutritional values per serving without the additional fillings.</div>
+        <table>
+          <tr>
+            <td>Calories</td>
+            <td>277kcal</td>
+          </tr>
 
-  Add fillings (optional): When the eggs begin to set at the edges but are still slightly runny in the 
-  middle, sprinkle your chosen fillings over one half of the omelette.
+          <tr>
+            <td>Carbs</td>
+            <td>0g</td>
+          </tr>
 
-  Fold and serve: As the omelette continues to cook, carefully lift one edge and fold it over the 
-  fillings. Let it cook for another minute, then slide it onto a plate.
+          <tr>
+            <td>Protein</td>
+            <td>20g</td>
+          </tr>
 
-  Enjoy: Serve hot, with additional salt and pepper if needed.
+          <tr>
+            <td>Fat</td>
+            <td>22g</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
 
-  Nutrition
 
-  The table below shows nutritional values per serving without the additional fillings.
 
-  Calories
-  277kcal
-
-  Carbs
-  0g
-
-  Protein
-  20g
-
-  Fat
-  22g
-  
   <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
     Coded by <a href="#">Your Name Here</a>.
   </div>
 </body>
+
 </html>
