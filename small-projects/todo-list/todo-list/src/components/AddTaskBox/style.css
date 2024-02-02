@@ -1,0 +1,10 @@
+.add-task-input {
+  padding: 1rem;
+  border-radius: 0.5rem;
+
+  border: none;
+}
+
+.add-task-input:focus {
+  outline: none;
+}
