@@ -1,0 +1,30 @@
+body {
+  height: 100vh;
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkerboard {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+}
+
+.row {
+  display: flex;
+}
+
+.cell {
+  min-width: 2rem;
+  min-height: 2rem;
+
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid black;
+}
